@@ -12,34 +12,22 @@ import { answerQuestion, wrongAnswer } from "../actions/cardActions"
 })
 export default class TriviaCard extends React.Component {
 
-    showQuestion(index, next) {
-        if (index == 1) {
-            return 'show';
-        } else {
-            return 'hide';
+    constructor(props){
+        super(props);
+        // show our first question by default
+        this.state = {
+            showCard: "question-1"
         }
     }
 
     showNextQuestion(index) {
-        // XXX: This should be using the component state
-        // instead of directly manipulating the dom
         // if index is 10, we have pass the final question
-        // time to show results
+        // time to show results, set showCard back to first
         if(index == 10) {
-            return;
+            return this.setState({showCard: 'question-1'});
         }
-        // form our question ids
-        let hideThisOne = "question-"+index;
-        // parens to first add index and 1 then concat int to string
-        let showThisOne = "question-"+(index+1);
-
-        // add hide to current question and remove show
-        document.getElementById(hideThisOne).classList.add('hide');
-        document.getElementById(hideThisOne).classList.remove('show');
-        // add show and remove hide for next question
-        document.getElementById(showThisOne).classList.add('show');
-        document.getElementById(showThisOne).classList.remove('hide');
-        return;
+        index++;
+        return this.setState({showCard: 'question-'+index});
     }
 
     // XXX: define our answer functions for true and false
@@ -70,7 +58,7 @@ export default class TriviaCard extends React.Component {
         // index++ would render the first question id to be question-1 while
         // the key would be ...question-0
         const mappedQuestions = this.props.questions.map((question, index) => 
-            <li key={'question-'+ ++index} id={'question-'+index} className={(this.showQuestion(index))}>
+            <li key={'question-'+ ++index} id={'question-'+index} className={(this.state.showCard == "question-"+index)? "show" : "hide"}>
                 <h1>{question.category}</h1>
                 <h3 className="uppercase margin16Auto fontSize24">{question.difficulty}</h3>
                 <section className="questionSection">
