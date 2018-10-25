@@ -1,0 +1,169 @@
+/* Helper classes */
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.marginTop0 {
+    margin-top: 0;
+}
+
+.margin16Auto {
+    margin: 16px auto;
+}
+
+.marginRight16{
+    margin-right: 16px;
+}
+
+.paddingTop16 {
+    padding-top: 16px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.fontSize24 {
+    font-size: 24px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.vAlignTextTop{
+    vertical-align: text-top;
+}
+
+/* Begin app styling */
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: rgb(29, 29, 29);
+    margin: 0;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mapped-questions > li {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#mapped-results {
+    height: 70vh;
+    overflow-y: auto;
+    border-bottom: solid 2px #fff;
+}
+
+#mapped-results > li {
+    margin: 8px 0;
+}
+
+#start-screen-title {
+    margin: 0;
+    padding: 48px;
+    font-size: 48px;
+    font-weight: normal;
+}
+
+#start-screen-section {
+    position: absolute;
+    top: calc(50vh - 176px);
+    left: 10%;
+    right: 10%;
+}
+
+#start-screen-section > h3 {
+    font-size: 32px;
+    margin: 48px 0;
+    font-weight: normal;
+}
+
+.btnBottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 16px;
+    font-size: 32px;
+    color: #fff;
+    display: block;
+}
+
+.questionSection {
+    position: absolute;
+    top: 184px;
+    left: 5%;
+    right: 5%;
+    font-size: 32px;
+    border: 1px solid #fff;
+    padding: 16px;
+}
+
+.questionCounter {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 100%;
+}
+
+.questionFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.answerBtns {
+    border: none;
+    padding: 16px 32px;
+    font-size: 32px;
+    background: #fff;
+    color: rgb(29, 29, 29);
+    margin: 16px;
+    border-radius: 4px;
+    min-width: 40%;
+}
+
+.correct {
+    color: rgb(32, 195, 97);
+}
+
+.incorrect {
+    color: rgb(214, 57, 57);
+}
+
+#play-again {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 32px;
+    margin-top: 16px;
+    background: none;
+    color: #fff;
+    border: none;
+}
