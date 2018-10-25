@@ -85,8 +85,8 @@ export default class TriviaCard extends React.Component {
                 </footer>
             </li>
         )
-        // return our results if we have answered 10 questions!
-        if (this.props.cards.answers.length == 10) {
+        // return our results if we have answered all the questions!
+        if (this.props.cards.answers.length == this.props.questions.length) {
             const mappedResults = this.props.cards.answers.map((result, index) =>
                 <li key={'result='+index} className={(result.input == result.answer) ? 'correct' : 'incorrect'}>
                     <h2><i class="material-icons marginRight16 inlineBlock vAlignTextTop">{ (result.input == result.answer) ? 'add' : 'clear'}</i>{result.question}</h2>
