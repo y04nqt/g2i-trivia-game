@@ -21,6 +21,8 @@ export default class TriviaCard extends React.Component {
     }
 
     showNextQuestion(index) {
+        // XXX: This should be using the component state
+        // instead of directly manipulating the dom
         // if index is 10, we have pass the final question
         // time to show results
         if(index == 10) {
