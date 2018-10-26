@@ -21,9 +21,9 @@ export default class TriviaCard extends React.Component {
     }
 
     showNextQuestion(index) {
-        // if index is 10, we have pass the final question
-        // time to show results, set showCard back to first
-        if(index == 10) {
+        // if index equals length of questions, we have pass the final question
+        // time to show results, set showCard back to default
+        if(index == this.props.questions.length) {
             return this.setState({showCard: 'question-1'});
         }
         index++;
