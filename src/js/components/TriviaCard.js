@@ -32,20 +32,20 @@ export default class TriviaCard extends React.Component {
 
     // XXX: define our answer functions for true and false
     // Current set up is kind of dirty but works
-    trueAnswer(answer, score, correctAnswer, wrongInput, originalQuestion, index) {
+    trueAnswer(answer, score, correctAnswer, wrongAnswerData, originalQuestion, index) {
         this.showNextQuestion(index);
-        if(answer !== JSON.parse(correctAnswer.toLowerCase())){
+        if(answer === JSON.parse(correctAnswer.toLowerCase())){
             return this.props.dispatch(answerQuestion(true, true, score, originalQuestion));
         }
         return this.props.dispatch(wrongAnswer(correctAnswer, answer, originalQuestion));
     }
 
-    falseAnswer(answer, score, correctAnswer, wrongInput, originalQuestion, index) {
+    falseAnswer(answer, score, correctAnswer, wrongAnswerData, originalQuestion, index) {
         this.showNextQuestion(index);
-        if(answer !== JSON.parse(correctAnswer.toLowerCase())){
-            return this.props.dispatch(wrongAnswer(correctAnswer, answer, originalQuestion));
+        if(answer === JSON.parse(correctAnswer.toLowerCase())){
+            return this.props.dispatch(answerQuestion(false, false, score, originalQuestion));
         }
-        return this.props.dispatch(answerQuestion(false, false, score, originalQuestion));
+        return this.props.dispatch(wrongAnswer(correctAnswer, answer, originalQuestion));
     }
 
     // Reload the window to restart the game
